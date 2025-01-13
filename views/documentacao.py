@@ -77,7 +77,7 @@ st.write("---")
 conclusao_projeto = "A aplicação das técnicas de inteligência artificial em conjunto com a plataforma web podem se tornar uma ferramenta valiosa para a detecção precoce de doenças cardíacas, beneficiando o sistema de saúde e melhorando o prognóstico dos pacientes."
 conclusao_projeto = justificar_texto(conclusao_projeto)
 
-st.markdown("<div style='text-align: center; font-size: 19px; background-color: #934a7d; color: white; padding: 10px; border-radius: 5px;'><b>RESULTADO</b></div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 19px; background-color: #934a7d; color: white; padding: 10px; border-radius: 5px;'><b>CONCLUSÃO</b></div>", unsafe_allow_html=True)
 #st.markdown("<div style='text-align: left; font-size: 19px;'><b> 5 - CONCLUSÃO</b></div>", unsafe_allow_html=True)
 st.write("")
 st.markdown(conclusao_projeto, unsafe_allow_html=True)
