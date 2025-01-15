@@ -35,7 +35,7 @@ with col3:
     st.link_button(label="LinkedIn", url ="https://www.linkedin.com/in/pedrobarauna/", use_container_width=True)
 
 with col4:
-    st.image("imagens/imagem_sem_foto.png", "Fabio Teixeira")
+    st.image("imagens/imagem_fabio.jpg", "Fabio Teixeira")
     st.link_button(label="LinkedIn", url ="https://www.linkedin.com/in/fabioteixeira/", use_container_width=True)
 
 
