@@ -39,7 +39,7 @@ with col1:
     contexto_projeto ="As doenças cardíacas estão entre as principais causas de mortalidade em todo o mundo, representando uma significativa ameaça à saúde. Diante desse cenário, a prevenção e o diagnóstico precoce tornam-se essenciais para reduzir a ocorrência dessas doenças e melhorar a qualidade de vida das pessoas."
     contexto_projeto = justificar_texto(contexto_projeto)
     
-    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #ebea70; padding: 10px; border-radius: 5px;'><b>CONTEXTO DO PROJETO</b></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #C4ECFF; padding: 10px; border-radius: 5px;'><b>CONTEXTO DO PROJETO</b></div>", unsafe_allow_html=True)
     #st.markdown("<div style='text-align: left; font-size: 19px;'><b>1 - CONTEXTO DO PROJETO</b></div>", unsafe_allow_html=True)
     st.write("")
 
@@ -49,7 +49,7 @@ with col1:
     objetivo_projeto = "Desenvolvimento de uma ferramenta baseada em técnicas de machine learning capaz de fornecer um pré-diagnóstico de doenças cardíacas, auxiliando médicos e pacientes na detecção precoce de possíveis problemas cardíacos."
     objetivo_projeto = justificar_texto(objetivo_projeto)
 
-    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #002561; color: white; padding: 10px; border-radius: 5px;'><b>OBJETIVO</b></div>",unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #C4ECFF; padding: 10px; border-radius: 5px;'><b>OBJETIVO</b></div>",unsafe_allow_html=True)
     #st.markdown("<div style='text-align: left; font-size: 19px;'><b>2 - OBJETIVO</b></div>", unsafe_allow_html=True)
     st.write("")
     st.markdown(objetivo_projeto, unsafe_allow_html=True)
@@ -59,7 +59,7 @@ with col2:
     metodo_projeto = "Análise exploratória em uma base de dados pública contendo informações clínicas de 918 pacientes. Processamento de dados, utilização de técnicas de aprendizado de máquina e interface gráfica."
     metodo_projeto = justificar_texto(metodo_projeto)
 
-    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #8EC6B2 ; padding: 10px; border-radius: 5px;'><b>MÉTODO</b></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #C4ECFF ; padding: 10px; border-radius: 5px;'><b>MÉTODO</b></div>", unsafe_allow_html=True)
     #st.markdown("<div style='text-align: left; font-size: 19px;'><b>3 - MÉTODO</b></div>", unsafe_allow_html=True)
     st.write("")
     st.markdown(metodo_projeto, unsafe_allow_html=True)
@@ -68,7 +68,7 @@ with col2:
     resultados_projeto = "O modelo de Regressão Logística foi o que teve melhor desempenho atingindo 86.36% de precisão, 89.06% para revocação e 87.68% no F1-Score, o qual está sendo utilizado nessa aplicação."
     resultados_projeto = justificar_texto(resultados_projeto)
 
-    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #F2665E; color: white; padding: 10px; border-radius: 5px;'><b>RESULTADO</b></div>", unsafe_allow_html=True)
+    st.markdown("<div style='text-align: center; font-size: 19px; background-color: #C4ECFF; padding: 10px; border-radius: 5px;'><b>RESULTADO</b></div>", unsafe_allow_html=True)
     #st.markdown("<div style='text-align: left; font-size: 19px;'><b> 4 - RESULTADO</b></div>", unsafe_allow_html=True)
     st.write("")
     st.markdown(resultados_projeto, unsafe_allow_html=True)
@@ -77,7 +77,7 @@ st.write("---")
 conclusao_projeto = "A aplicação das técnicas de inteligência artificial em conjunto com a plataforma web podem se tornar uma ferramenta valiosa para a detecção precoce de doenças cardíacas, beneficiando o sistema de saúde e melhorando o prognóstico dos pacientes."
 conclusao_projeto = justificar_texto(conclusao_projeto)
 
-st.markdown("<div style='text-align: center; font-size: 19px; background-color: #934a7d; color: white; padding: 10px; border-radius: 5px;'><b>CONCLUSÃO</b></div>", unsafe_allow_html=True)
+st.markdown("<div style='text-align: center; font-size: 19px; background-color: #C4ECFF; padding: 10px; border-radius: 5px;'><b>CONCLUSÃO</b></div>", unsafe_allow_html=True)
 #st.markdown("<div style='text-align: left; font-size: 19px;'><b> 5 - CONCLUSÃO</b></div>", unsafe_allow_html=True)
 st.write("")
 st.markdown(conclusao_projeto, unsafe_allow_html=True)
