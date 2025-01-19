@@ -149,7 +149,7 @@ with col2:
                 else:
 
                     with st.spinner('Obtendo resultado...'):
-                        time.sleep(5)
+                        time.sleep(3)
                     input_ML = (
                         idade, pressao, colesterol_ldl, glicemia, freq_cardiaca_max, fluxo_sanguineo, 
                         sexo, tipo_dor[0], tipo_dor[1], tipo_dor[2], ecg_repouso[0], ecg_repouso[1], 
