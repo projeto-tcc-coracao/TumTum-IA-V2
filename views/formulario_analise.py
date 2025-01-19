@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import time
 
 st.set_page_config(page_title="TumTum IA",
    page_icon="tumtum-icone.png",
@@ -18,25 +19,7 @@ if 'mostrar_resultado' not in st.session_state:
 def reset_form():
     st.session_state.mostrar_resultado = False
 
-st.markdown(
-    '''
-    <div style="text-align: center; font-size: 50PX; color: #FF4B6E; font-weight: bold; max-width: 1200px; margin: 0 auto;">
-        TumTum IA
-    </div>
-    ''',
-    unsafe_allow_html=True
-)
 
-
-st.markdown(
-    '''
-    <div style="text-align: center; font-size: 30PX; color: #2C3E50; font-weight: bold; max-width: 1200px; margin: 0 auto;">
-        Previsão de Risco Cardíaco
-    </div>
-    ''',
-    unsafe_allow_html=True
-)
-st.write("")
 #st.markdown("<div style='text-align: center; font-size: 19px;color: #FF4B6E;font-weight: bold; padding: 20px 0;'><b>TumTum IA</b></div>", unsafe_allow_html=True)
 #st.markdown("<div style='text-align: center; font-size: 19px;'><b>ENTREVISTA INDIVIDUAL</b></div>", unsafe_allow_html=True)
 
@@ -46,8 +29,26 @@ col1, col2, col3 = st.columns([0.5, 2, 0.5])
 
 with col2:
     if not st.session_state.mostrar_resultado:
-        
 
+        st.markdown(
+        '''
+            <div style="text-align: center; font-size: 50PX; color: #FF4B6E; font-weight: bold; max-width: 1200px; margin: 0 auto;">
+                TumTum IA
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+
+        st.markdown(
+            '''
+            <div style="text-align: center; font-size: 30PX; color: #2C3E50; font-weight: bold; max-width: 1200px; margin: 0 auto;">
+                Previsão de Risco Cardíaco
+            </div>
+            ''',
+            unsafe_allow_html=True
+        )
+        st.write("")
+        
         with st.form("formulario_risco_cardiaco"):
             st.html('''<h4 style="color: #FF4B6E; text-align: left; border-bottom: 2px solid #FF4B6E; padding-bottom: 5px;">
                         Dados Básicos
@@ -69,7 +70,6 @@ with col2:
             col3, col4 = st.columns(2)
             with col3:
                 pressao = st.number_input("Pressão Arterial (mmHg)", min_value=0, step=1, help="Entre 70 e 300.")
-                st.caption("Em repouso")
             with col4:
                 colesterol_ldl = st.number_input("Colesterol LDL (mg/dL)", min_value=0, step=1, help = "Entre 30 e 300.")
 
@@ -141,26 +141,43 @@ with col2:
                 model_LogisticRegression = pickle.load(f)
 
             if submit_button:
-                input_ML = (
-                    idade, pressao, colesterol_ldl, glicemia, freq_cardiaca_max, fluxo_sanguineo, 
-                    sexo, tipo_dor[0], tipo_dor[1], tipo_dor[2], ecg_repouso[0], ecg_repouso[1], 
-                    angina_exercicio, padrao_ecg[0], padrao_ecg[1]
-                )
 
-                input_data_as_numpy_array = np.asarray(input_ML)
-                input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
-                prediction = model_LogisticRegression.predict(input_data_reshaped)
+                # verificando preenchimento dos campos obrigatorios
+                if not idade or not sexo or not pressao or not colesterol_ldl  or not freq_cardiaca_max or not fluxo_sanguineo:
+                    st.warning("Preencha todos os campos obrigatórios.")
+
+                else:
+
+                    with st.spinner('Obtendo resultado...'):
+                        time.sleep(5)
+                    input_ML = (
+                        idade, pressao, colesterol_ldl, glicemia, freq_cardiaca_max, fluxo_sanguineo, 
+                        sexo, tipo_dor[0], tipo_dor[1], tipo_dor[2], ecg_repouso[0], ecg_repouso[1], 
+                        angina_exercicio, padrao_ecg[0], padrao_ecg[1]
+                    )
+
+                    input_data_as_numpy_array = np.asarray(input_ML)
+                    input_data_reshaped = input_data_as_numpy_array.reshape(1, -1)
+                    prediction = model_LogisticRegression.predict(input_data_reshaped)
 
 
-                st.session_state.prediction = prediction[0]
-                st.session_state.mostrar_resultado = True
+                    st.session_state.prediction = prediction[0]
+                    st.session_state.mostrar_resultado = True
 
-                st.rerun()
+                    st.rerun()
 
 
     else:
-        st.markdown(f"<h1 style='color: #FF4B6E; text-align: center;'>TumTum IA</h1>", unsafe_allow_html=True)
-        st.markdown(f"<h3 style='color: #2C3E50; text-align: center;'>Resultado da Avaliação</h3>", unsafe_allow_html=True)
+        st.markdown('''
+            <div style="text-align: center; font-size: 50PX; color: #FF4B6E; font-weight: bold; max-width: 1200px; margin: 0 auto;">
+                TumTum IA
+            </div>
+            ''',unsafe_allow_html=True)
+
+        st.markdown( '''
+            <div style="text-align: center; font-size: 30PX; color: #2C3E50; font-weight: bold; max-width: 1200px; margin: 0 auto;">
+                Resultado da Avaliação
+            </div>''', unsafe_allow_html=True)
 
         
         st.markdown("""
@@ -182,16 +199,15 @@ with col2:
                 </div>
             """, unsafe_allow_html=True)
 
-            st.markdown("### 🏥 Recomendações Importantes:")
+            st.markdown("### Recomendações importantes:")
             st.markdown("""
-            - **Procure um Médico Imediatamente**
-            - Realize exames complementares (Ecocardiograma, Teste de Esforço)
-            - Monitore sua pressão arterial regularmente
-            - Faça exames de sangue para avaliar marcadores cardíacos
-            - Considere mudanças no estilo de vida
+            - **Procure um médico imediatamente!**
+            - Solicite a realização de exames complementares, como: Ecocardiograma.
+            - Monitore sua pressão arterial regularmente.
+            - Considere mudanças no estilo de vida.
             """)
 
-            st.warning("Este resultado indica a necessidade de avaliação médica profissional o mais breve possível!")
+            st.markdown("Este resultado indica a necessidade de avaliação médica profissional o mais breve possível!")
 
         else:
             st.markdown("""
@@ -201,15 +217,16 @@ with col2:
                 </div>
             """, unsafe_allow_html=True)
 
-            st.markdown("### 💚 Recomendações para Manter sua Saúde:")
+            st.markdown("### 💚 Recomendações para manter sua saúde do coração:")
             st.markdown("""
-            - Mantenha uma dieta equilibrada
-            - Pratique exercícios físicos regularmente
-            - Faça check-ups periódicos
-            - Mantenha um bom padrão de sono
-            - Continue monitorando sua saúde
+            - Mantenha uma dieta equilibrada.
+            - Pratique exercícios físicos regularmente.
+            - Faça check-ups periódicos.
+            - Mantenha um bom padrão de sono.
+            - Continue monitorando sua saúde.
             """)
-
+            
+            st.write("Observação: Essa ferramenta não substitui uma consulta médica!")
             st.success("Continue mantendo seus bons hábitos de saúde!")
 
 
