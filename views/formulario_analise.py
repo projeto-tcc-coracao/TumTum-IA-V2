@@ -143,7 +143,7 @@ with col2:
             if submit_button:
 
                 # verificando preenchimento dos campos obrigatorios
-                if not idade or not sexo or not pressao or not colesterol_ldl  or not freq_cardiaca_max or not fluxo_sanguineo:
+                if not idade or not sexo or not pressao or not colesterol_ldl  or not freq_cardiaca_max:
                     st.warning("Preencha todos os campos obrigatórios.")
 
                 else:
