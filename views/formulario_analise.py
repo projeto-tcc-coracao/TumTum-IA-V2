@@ -141,7 +141,7 @@ with col2:
             with open('model_LogisticRegression.pkl', 'rb') as f:
                 model_LogisticRegression = pickle.load(f)
 
-            st.write("Essa ferramenta não substitui um diagnóstico médico")
+            st.write("Essa ferramenta não substitui um diagnóstico médico.")
             if submit_button:
 
                 # verificando preenchimento dos campos obrigatorios
