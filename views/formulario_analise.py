@@ -47,11 +47,7 @@ with col2:
             ''',
             unsafe_allow_html=True
         )
-       st.markdown('''
-            <div style="text-align: center; font-size: 13PX; color: #2C3E50; font-weight: bold; max-width: 1200px; margin: 0 auto;">
-                Esta análise não substitui um diagnóstico médico
-            </div>
-            ''',unsafe_allow_html=True)
+
         #st.write("Esta análise não substitui um diagnóstico médico")
         
         with st.form("formulario_risco_cardiaco"):
