@@ -47,7 +47,7 @@ with col2:
             ''',
             unsafe_allow_html=True
         )
-        st.write("")
+        st.write("Esta análise não substitui um diagnóstico médico")
         
         with st.form("formulario_risco_cardiaco"):
             st.html('''<h4 style="color: #FF4B6E; text-align: left; border-bottom: 2px solid #FF4B6E; padding-bottom: 5px;">
