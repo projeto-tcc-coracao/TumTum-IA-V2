@@ -217,7 +217,7 @@ with col2:
                 </div>
             """, unsafe_allow_html=True)
 
-            st.markdown("### 💚 Recomendações para manter sua saúde do coração:")
+            st.markdown("###Recomendações para manter sua saúde do coração:")
             st.markdown("""
             - Mantenha uma dieta equilibrada.
             - Pratique exercícios físicos regularmente.
